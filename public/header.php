@@ -16,6 +16,19 @@ if (basename($_SERVER['SCRIPT_NAME']) === 'post.php'):
         $post = $stmt->fetch(PDO::FETCH_ASSOC);
     } 
 endif;
+
+$currentFile = basename($_SERVER['SCRIPT_NAME']);
+switch ($currentFile) {
+    case 'post.php':
+        $titleweb = $post['title'] . ' - ' . APP_NAME;
+        break;
+    case 'index.php':
+        $titleweb = (APP_TAGLINE) ? APP_NAME . " - " . APP_TAGLINE : APP_NAME;
+        break;
+    default:
+        $titleweb = APP_NAME;
+        break;
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +36,7 @@ endif;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Buakan - Solusi Inovatif</title>
+    <title><?php echo $titleweb ?></title>
     <!-- Bootstrap CSS -->
     <link href="./assets/bootstrap.css" rel="stylesheet">
     <style>
