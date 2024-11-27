@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentasi Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --code-bg: #1f2937;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: #f9fafb;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section h3 {
+            color: var(--text-color);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .section p, .section li {
+            margin-top: .75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section ol, .section ul {
+            padding-left: 1.75rem;
+            margin-bottom: .75rem;
+        }
+
+        .section p code, .section li code {
+            background: #eaeaea;
+            font-size: .875em;
+            font-weight: 600;
+            color: #3a3a3a;
+            padding: .15em;
+            border-radius: 3px;
+        }
+
+        .section pre code {
+            background: unset;
+            font-size: unset;
+            font-weight: unset;
+            color: unset;
+            padding: unset;
+            border-radius: unset;
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            border-radius: 6px;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .code-header {
+            background: #374151;
+            padding: 0.5rem 1rem;
+            border-radius: 6px 6px 0 0;
+            color: #fff;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-button {
+            background: #4b5563;
+            border: none;
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+        }
+
+        .copy-button.right {
+            position: absolute;
+            right: 1rem;
+            border-radius: 0;
+        }
+
+        .copy-button:hover {
+            background: #6b7280;
+        }
+
+        pre {
+            margin: 0 !important;
+            padding: 1rem !important;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+
+        .note {
+            background: #f3f4f6;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .note-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>CMS Sederhana</h1>
+            <p>Dokumentasi CMS simple menggunakan PHP.</p>
+        </header>
+
+        <!-- pendahuluan -->
+        <section class="section">
+            <h2>Pendahuluan</h2>
+            <p>CMS ini terdiri dari dua bagian utama:</p>
+            <ol>
+                <li><strong>Public Area:</strong> Tampilan depan untuk publik.</li>
+                <li><strong>Admin Area:</strong> Area admin untuk mengelola konten (tambah, edit atau hapus postingan), hanya dapat diakses dengan login.</li>
+            </ol>
+
+            <h3>Struktur Folder</h3>            
+<div class="code-block">
+                <pre><code class="language-css">project/
+├── public/ 
+│   ├── assets/ 
+│   │   ├── css/
+│   ├── index.php 
+│   ├── post.php 
+│   ├── header.php 
+│   └── footer.php 
+├── admin/ 
+│   ├── assets/ 
+│   │   ├── tinymce/
+│   │   └── style.css
+│   ├── index.php 
+│   ├── login.php 
+│   ├── logout.php 
+│   ├── add-content.php 
+│   ├── delete-content.php
+│   ├── edit-content.php 
+│   ├── header.php 
+│   └── footer.php 
+├── includes/ 
+│   ├── config.php 
+│   ├── db.php 
+│   ├── functions.php 
+│   └── auth.php 
+├── uploads/ 
+│   └── images/
+└── .htaccess  # Pengaturan server (opsional, untuk routing dsb)</code></pre>
+</div>
+            <p>Penjelasan struktur untuk beberapa poin penting: </p>
+            <ul>
+                <li>
+                    <p><strong><code>includes/</code></strong>:
+                        Menyimpan file konfigurasi dan fungsi global:</p>
+                    <ul>
+                        <li><code>config.php</code>: Konfigurasi database.</li>
+                        <li><code>functions.php</code>: Fungsi-fungsi yang sering digunakan.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong><code>admin/</code></strong>:
+                        Area backend untuk mengelola konten:</p>
+                    <ul>
+                        <li><code>add-content.php</code>: Menambahkan konten.</li>
+                        <li><code>edit-content.php</code>: Mengedit konten.</li>
+                        <li><code>delete-content.php</code>: Menghapus konten.</li>
+                        <li><code>index.php</code>: Melihat semua konten.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong><code>public/</code></strong>:
+                        Area frontend yang diakses oleh publik:</p>
+                    <ul>
+                        <li><code>index.php</code>: Menampilkan daftar konten.</li>
+                        <li><code>post.php</code>: Menampilkan detail sebuah konten.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p><strong><code>uploads/</code></strong>:
+                        Direktori untuk penyimpanan gambar yang di upload.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- instalasi -->
+        <section class="section">
+            <h2>Instalasi</h2>
+            <div class="note">
+                <div class="note-title">Catatan</div>
+                <p>Contoh instalasi di lokal server menggunakan Xampp.</p>
+                <p>Tempatkan source code di folder htdocs xampp dan jalankan apache server serta mysql phpmyadmin</p>
+            </div>
+            <h3>Pembuatan Database</h3>
+            <p>Membuat database dan tabel dengan kebutuhan user untuk akses dashboard admin, dan post untuk menyimpan data konten seperti judul, gambar, dsb.</p>
+            <p>pergi ke <code>http://localhost/phpmyadmin/</code> > klik <code>new</code> > masuk ke menu <code>SQL</code></p>
+            <ol>
+                <li>
+                    <p>Buat database serta tabel <code>user</code> dan <code>post</code>:</p>
+<div class="code-block">
+    <button class="copy-button right">Copy</button>
+<pre><code class="language-sql">CREATE DATABASE my_database;
+USE my_database;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    featured_image VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);</code></pre>
+</div>
+                    <p>Ubah <code>my_database</code> dengan nama database yang di inginkan</p>
+                </li>
+                <li>
+                    <p>Buat user admin dan password pada database yang baru dibuat tadi:</p>
+<div class="code-block">
+    <button class="copy-button right">Copy</button>
+<pre><code class="language-sql">INSERT INTO users (username, password) VALUES
+('admin', 'hash_password');</code></pre>
+</div>
+                    <p><strong>NOTE:</strong> Wajib mengubah <code>hash_password</code> dengan hasil hash password php, bisa generate online <a href="https://bcrypt.online/">disini</a></p>
+                </li>
+            </ol>
+
+            <h3>Pengaturan Awal</h3>
+            <ol>
+                <li>
+                    <p><strong>Konfigurasi Database</strong></p>
+                    <p>Buka file <code>includes/config.php</code>. Atur dan sesuaikan bagian ini dengan database yang ada:</p>
+<div class="code-block">
+    <div class="code-header">
+        <span>config.php</span>
+        <button class="copy-button">Copy</button>
+    </div>
+<pre><code class="language-php">// pengaturan Database
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'my_database');
+define('DB_USER', 'root');
+define('DB_PASS', '');  // sesuaikan dengan password database</code></pre>
+</div>
+                </li>
+                <li>
+                    <p><strong>Pengaturan Umum</strong></p>
+                    <p>Masih di file <code>includes/config.php</code>. Untuk melakukan pengaturan umum seperti merubah nama website dan lain sebagainya  </p>
+<div class="code-block">
+    <div class="code-header">
+        <span>config.php</span>
+        <button class="copy-button">Copy</button>
+    </div>
+<pre><code class="language-php">// pengaturan umum
+    $base_url = 'http://localhost/cmsBuatan/simpleCMS/'; // wajib memberikan akhiran slash "/" diakhir url
+    define('BASE_URL_SITE', $base_url . 'public/');  // URL situs
+    define('BASE_URL_ADMIN', $base_url . 'admin/');  // URL admin
+    define('BASE_URL_UPLOADS', $base_url . 'uploads/');  // URL direktori uploads
+    define('APP_NAME', 'NamaSitus');
+    define('APP_TAGLINE', 'Solusi untuk segala kehidupan Anda');
+
+// pengaturan homepage
+define('CTA_NAME', 'Info Lengkap');
+define('CTA_LINK', '#about');
+define('ABOUT_TEXT', '
+    Text about dsb
+');
+define('ALAMAT_NAME', 'Nama Tempat');
+define('ALAMAT_TEXT', 'alamat xxx');
+
+
+// pengaturan post
+define('WA_NUMBER', '628xxxx');
+define('WA_TEXT', 'halo saya ingin xxx');
+define('WA_LINK', 
+    'https://web.whatsapp.com/send?phone=' 
+    . WA_NUMBER 
+    . '&text=' 
+    . WA_TEXT 
+);
+define('WA_BTN_NAME', 'WhatsApp');</code></pre>
+</div>
+                    <p>Hal yang perlu diperhatikan, pada variable <code>$base_url</code> pastikan di isi dengan url tempat menjalankan code, jika di hosting maka ubah sesuai url domain misal <code>https://yourdomain.com</code> .</p>
+                    <p>Sisanya tinggal ubah dan sesuaikan keinginan.</p>
+                    <div class="note">
+                        <div class="note-title">PENTING</div>
+                        <p>Ada beberapa hal yang tidak boleh di ubah untuk menghindari error, diantaranya :</p>
+                        <ul>
+                            <li><code>BASE_URL_SITE</code></li>
+                            <li><code>BASE_URL_ADMIN</code></li>
+                            <li><code>BASE_URL_UPLOADS</code></li>
+                            <li><code>WA_LINK</code></li>
+                        </ul>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <!-- penggunaan dasar-->
+        <section class="section">
+            <h2>Penggunaan Dasar</h2>
+            <h3>Admin area</h3>
+            <ul><li><strong>URL Akses</strong>: <code>http://yourdomain.com/admin/</code></li><li><strong>Login</strong>:<ul><li>Masukkan username dan password untuk mengakses.</li></ul></li><li><strong>Menu Admin</strong>:<ul><li><strong>Tambah Konten</strong>:<ul><li>Akses <code>add-content.php</code>.</li><li>Isi judul, konten, unggah gambar, dan simpan.</li><li>Setelah berhasil, akan diarahkan ke halaman edit konten.</li></ul></li><li><strong>Edit Konten</strong>:<ul><li>Akses <code>edit-content.php?id=&lt;ID&gt;</code>.</li><li>Perbarui informasi konten dan simpan.</li></ul></li><li><strong>Hapus Konten</strong>:<ul><li>Akses <code>delete-content.php?id=&lt;ID&gt;</code>.</li></ul></li></ul></li></ul>
+            <h3></h3>
+            <ul><li><strong>URL Akses</strong>: <code>http://yourdomain.com/public/</code></li><li><strong>Menu Public</strong>:<ul><li><strong>Lihat Daftar Postingan</strong>:<ul><li>Akses <code>index.php</code>.</li></ul></li><li><strong>Baca Postingan</strong>:<ul><li>Klik judul postingan untuk membuka halaman detail (<code>single.php?id=&lt;ID&gt;</code>).</li></ul></li></ul></li></ul>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-php.min.js"></script>
+    <script>
+        // Implementasi fungsi copy untuk tombol copy
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const codeBlock = button.closest('.code-block');
+                const code = codeBlock.querySelector('code').textContent;
+                
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

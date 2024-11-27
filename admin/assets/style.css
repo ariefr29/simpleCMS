@@ -1,0 +1,133 @@
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fafafa;
+    border: solid 1px #ddd;
+    margin-bottom: 2rem;
+}
+form.loginform {
+    width: 90%;
+    max-width: 275px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fafafa;
+    border: solid 1px #ddd;
+}
+form input {
+    display: block;
+    width: calc(100% - 1.1rem);
+    padding: .5rem;
+    border: 1px solid #aaa;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+form input::placeholder {
+    opacity: .5;
+}
+form label {
+    color: #222;
+    display: block;
+    margin-bottom: 5px;
+}
+form button {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #aaa;
+    font-weight: 600;
+    cursor: pointer;
+}
+.kiri {
+    float: left;
+    width: 70%;
+}
+.kanan {
+    width: calc(30% - var(--pd-left));
+    float: right;
+    --pd-left: 2rem;
+    padding-left: var(--pd-left);
+}
+.kanan input {
+    position: relative;
+    z-index: 1;
+}
+.cover {
+    position: relative;
+}
+.cover:after {
+    content: "Gambar saat ini";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    top: 43%;
+    height: 100%;
+    color: #f0f0f0;
+    z-index: 0;
+}
+.cover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: absolute;
+    opacity: .25;
+}
+.cover:hover:before {
+    opacity: .75;
+    transition: .15s linear;
+}
+
+.head {
+    border-bottom: solid #ddd;
+    margin-bottom: 2rem;
+}
+a {text-decoration: none;}
+a:hover {opacity: .75;}
+.menu {
+    display: flex;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.menu a:before {
+    content: "/";
+    margin: 10px;
+    color: #ccc;
+}
+.menu a:first-child:before, .menu a:last-child:before {
+    display: none;
+}
+.menu a:last-child {
+    margin-left: auto;
+}
+
+
+table {
+    width: 100%;
+}
+thead {
+    background: #172351;
+    color: #eaeaea;
+}
+tr {
+    background: #eee;
+}
+tr:nth-child(2n+1) {
+    background: transparent;
+}
+th {
+    padding: .5rem;
+}
+td {
+    padding: .5rem;
+}
+
+.btn-add {
+    padding: .5rem;
+    display: inline-block;
+    background: antiquewhite;
+    color: sienna;
+    margin-bottom: 1rem;
+}
