@@ -51,8 +51,7 @@
         <div class="d-md-flex">
             <!-- <div class="col-md-1"></div> -->
             <div class="col-md-6 pe-md-4">
-                <iframe width="100%" height="350" style="border:0" loading="lazy" allowfullscreen
-                src="https://www.google.com/maps/embed/v1/place?q=<?php echo ALAMAT_NAME ?>&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe> 
+                <?php echo GMAPS_IFRAME ?>
             </div>
             <div class="col-md-5 ps-md-4">
                 <span class="fw-bolder mt-5 mb-2 d-block">Alamat</span>

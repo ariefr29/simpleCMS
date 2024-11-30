@@ -23,7 +23,7 @@ define('ABOUT_TEXT', '
     Dolorum odit eaque aliquid? Asperiores voluptatum odit esse laborum, unde eligendi voluptates, 
     sapiente exercitationem beatae blanditiis amet doloribus iure similique voluptatem impedit!
 ');
-define('ALAMAT_NAME', 'Toko Apa Saja');
+define('GMAPS_IFRAME', 'iframe alamat gmaps >> https://iframex.com/google/?lang=en');
 define('ALAMAT_TEXT', 'Jl. Veteran Perang No.29, Ragnus, Kec. Kuring, Kota Sarung, Banten 52443');
 
 
